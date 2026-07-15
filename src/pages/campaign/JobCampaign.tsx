@@ -7,7 +7,7 @@ import { FileUpload } from "../../components/ui/FileUpload";
 import { Input } from "../../components/ui/input";
 import { Textarea } from "../../components/ui/textarea";
 import { useToast } from "../../hooks/use-toast";
-import { CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { ScrollAnimation } from "../../components/ui/ScrollAnimation";
 import greatPlaceToWorkCertificate1 from "../../assets/About/great-place-to-work-2024.webp";
 import greatPlaceToWorkCertificate2 from "../../assets/About/great-place-to-work-2025.webp";
@@ -62,6 +62,8 @@ const JobCampaign = () => {
   const [cvFile, setCvFile] = useState<File | null>(null);
   const [loading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  // const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
 
   // Validation state
   const [errors, setErrors] = useState<{
@@ -203,97 +205,97 @@ const JobCampaign = () => {
     });
   };
 
-//   const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     if (!validateForm()) {
-//       return;
-//     }
+  //   const handleSubmit = async (e: React.FormEvent) => {
+  //     e.preventDefault();
+  //     if (!validateForm()) {
+  //       return;
+  //     }
 
-//     setLoading(true);
+  //     setLoading(true);
 
-//     const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-//     const submissionDate = new Date().toLocaleString("en-AU", {
-//       timeZone: userTimeZone,
-//       day: "numeric",
-//       month: "long",
-//       year: "numeric",
-//       hour: "2-digit",
-//       minute: "2-digit",
-//       hour12: true,
-//     });
+  //     const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  //     const submissionDate = new Date().toLocaleString("en-AU", {
+  //       timeZone: userTimeZone,
+  //       day: "numeric",
+  //       month: "long",
+  //       year: "numeric",
+  //       hour: "2-digit",
+  //       minute: "2-digit",
+  //       hour12: true,
+  //     });
 
-//     const emailBody = `
-// ADVICELAB - NEW APPLICATION SUBMISSION
-// =========================================
+  //     const emailBody = `
+  // ADVICELAB - NEW APPLICATION SUBMISSION
+  // =========================================
 
-// Submission Date: ${submissionDate}
+  // Submission Date: ${submissionDate}
 
-// Applicant Details:
-// ------------------
-// First name: ${formData.firstName}
-// Last name: ${formData.lastName}
-// Email: ${formData.email}
-// Phone: ${formData.phone || "Not provided"}
+  // Applicant Details:
+  // ------------------
+  // First name: ${formData.firstName}
+  // Last name: ${formData.lastName}
+  // Email: ${formData.email}
+  // Phone: ${formData.phone || "Not provided"}
 
-// Motivation:
-// -----------
-// ${formData.motivation}
+  // Motivation:
+  // -----------
+  // ${formData.motivation}
 
-// CV File: ${cvFile?.name || "No file uploaded"}
+  // CV File: ${cvFile?.name || "No file uploaded"}
 
-// ---
-// This application was submitted through the AdviceLab application form.
-//     `;
+  // ---
+  // This application was submitted through the AdviceLab application form.
+  //     `;
 
-//     try {
-//       const response = await fetch(`${API_BASE_URL}/send-email`, {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//           // "x-api-key": "n4wSKrdsls7LO2vpHj78Qa9sR28ozfxS4qcCK9fL",
-//         },
-//         //  sender: "marketing@advicelab.com.au",
-//         //   recipient: "hello@advicelab.com.au",
+  //     try {
+  //       const response = await fetch(`${API_BASE_URL}/send-email`, {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           // "x-api-key": "n4wSKrdsls7LO2vpHj78Qa9sR28ozfxS4qcCK9fL",
+  //         },
+  //         //  sender: "marketing@advicelab.com.au",
+  //         //   recipient: "hello@advicelab.com.au",
 
-//         body: JSON.stringify({
-//           sender: "noreply@advicelab.com.au",
-//           recipient: "hello@advicelab.com.au",
-//           subject: `New Contact Form Submission: ${formData.name}`,
-//           body: emailBody,
-//           is_html: false,
-//           attachments: [],
-//         }),
-//       });
+  //         body: JSON.stringify({
+  //           sender: "noreply@advicelab.com.au",
+  //           recipient: "hello@advicelab.com.au",
+  //           subject: `New Contact Form Submission: ${formData.name}`,
+  //           body: emailBody,
+  //           is_html: false,
+  //           attachments: [],
+  //         }),
+  //       });
 
-//       if (!response.ok) {
-//         throw new Error("Failed to send message");
-//       }
+  //       if (!response.ok) {
+  //         throw new Error("Failed to send message");
+  //       }
 
-//       setSubmitted(true);
-//       // Track form submission in GA4
-//       try {
-//         trackFormSubmission("contact_form", {
-//           name: formData.name,
-//           email: formData.email,
-//           company: formData.company,
-//         });
-//       } catch (err) {
-//         // swallow analytics errors
-//       }
-//       setTimeout(() => {
-//         window.scrollTo({ top: 0, behavior: "smooth" });
-//       }, 100);
-//     } catch (error) {
-//       console.error("Error sending message:", error);
-//       toast({
-//         title: "Error",
-//         description: "Failed to send message. Please try again later.",
-//         variant: "destructive",
-//       });
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
+  //       setSubmitted(true);
+  //       // Track form submission in GA4
+  //       try {
+  //         trackFormSubmission("contact_form", {
+  //           name: formData.name,
+  //           email: formData.email,
+  //           company: formData.company,
+  //         });
+  //       } catch (err) {
+  //         // swallow analytics errors
+  //       }
+  //       setTimeout(() => {
+  //         window.scrollTo({ top: 0, behavior: "smooth" });
+  //       }, 100);
+  //     } catch (error) {
+  //       console.error("Error sending message:", error);
+  //       toast({
+  //         title: "Error",
+  //         description: "Failed to send message. Please try again later.",
+  //         variant: "destructive",
+  //       });
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
   const contactSchema = {
     "@type": "ContactPage",
@@ -333,53 +335,86 @@ const JobCampaign = () => {
         </div>
       </section>
 
-      {/* Super 11 Training & Application */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            <ScrollAnimation animation="fade-left" delay={200}>
+              <div className="relative">
+                <div className="aspect-video rounded-3xl overflow-hidden hover-lift shadow-2xl group">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/61HQJv39w-c?si=-WC_HsK218UWvveD"
+                    title="Advice Lab - Life at Work"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+
+                </div>
+              </div>
+            </ScrollAnimation>
+            <ScrollAnimation animation="fade-right">
+              <div>
+                <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
+                  Future Finance Leaders
+                </span>
+                <h2 className="font-display font-bold mt-2 mb-6 text-foreground text-2xl md:text-3xl">
+                  Not everyone gets a seat at the table.
+                </h2>
+                <ul className="text-muted-foreground mb-8 space-y-3 list-disc list-inside pl-5 marker:text-primary marker:text-base">
+                  <li>We're selecting 11 ambitious interns with the curiosity to learn and the determination to grow.</li>
+                  <li>Gain confidence and make a difference from day one in Australia’s financial services industry.</li>
+                  <li>Build real-world experience that sets you apart.</li>
+                  <li>Think you've got what it takes? Your future starts here. Apply today.</li>
+                </ul>
+                <Button
+                  size="sm"
+                  asChild
+                  className="h-12 px-12 text-md w-full sm:w-auto sm:min-w-[190px] transition-transform hover:scale-105"
+                >
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 justify-center sm:justify-start w-full"
+                  >
+                    Enter the Draft
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </Button>
+              </div>
+            </ScrollAnimation>
+          </div>
+        </div>
+      </section>
+
+      {/* Super 11 Training & Application */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 lg:px-8 space-y-16">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <ScrollAnimation animation="fade-left">
-              <div className="space-y-8">
-                <div className="overflow-hidden rounded-[2rem] shadow-xl">
-                  <div className="relative h-[320px] w-full sm:h-[360px]">
-                    <iframe
-                      src="https://www.youtube.com/embed/61HQJv39w-c?si=0jnHKLSTco9dPI5j"
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                      className="absolute inset-0 h-full w-full"
-                    />
-                  </div>
-                </div>
-                <div className="rounded-[2rem] border border-border bg-secondary/60 p-8 shadow-xl">
-                  <span className="inline-flex rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
-                    Super 11 Training Program
-                  </span>
-                  <h2 className="mt-6 text-3xl font-display font-bold text-foreground">
-                    Train to become a Super 11 star
-                  </h2>
-                  <p className="mt-4 max-w-xl text-base text-muted-foreground leading-8">
-                    Our Super 11 batch is designed for high-potential candidates who want to develop professional skills, build confidence, and join a fast-paced support team. Over the program, you will learn practical workflows, real client handling techniques, and how to perform at a premium service level.
-                  </p>
-                  <ul className="mt-8 space-y-4 text-foreground">
-                    <li className="flex items-start gap-3">
-                      <span className="mt-1 h-3 w-3 rounded-full bg-primary" />
-                      <span>Intensive coaching and hands-on training for financial support roles.</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="mt-1 h-3 w-3 rounded-full bg-primary" />
-                      <span>Real-world practice assignments and performance feedback.</span>
-                    </li>
-                    {/* <li className="flex items-start gap-3">
-                      <span className="mt-1 h-3 w-3 rounded-full bg-primary" />
-                      <span>Career development support and application review for the next intake.</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="mt-1 h-3 w-3 rounded-full bg-primary" />
-                      <span>Access to our coaching team and opportunities within Advice Lab.</span>
-                    </li> */}
-                  </ul>
+              <div className="rounded-[1rem] border border-border bg-secondary/60 p-10 shadow-xl">
+                <h3 className="text-2xl font-display font-bold text-foreground mb-6">
+                  Selection requirements
+                </h3>
+                <ul className="text-foreground text-muted-foreground mb-8 list-disc list-inside pl-2 marker:text-primary marker:text-base space-y-3">
+                  <li>
+                    Completed or pursuing a bachelors degree in finance, business management, banking, insurance or international business.
+                  </li>
+                  <li>
+                    Professional qualifications related to CIMA or ACCA (preferred).
+                  </li>
+                  <li>
+                    Strong written and verbal communication skills in English.
+                  </li>
+                  <li>
+                    Team-oriented mindset with a willingness to learn.
+                  </li>
+                </ul>
+
+                <div className="mt-10 space-y-6 text-md text-muted-foreground leading-8">
+                  <p>This isn’t just another internship.</p>
+                  <p>It’s your chance to learn from industry professionals, work with Australian financial advisers, build real-world skills, and be part of a supportive team that invests in your growth from day one.</p>
                 </div>
               </div>
             </ScrollAnimation>
@@ -411,11 +446,10 @@ const JobCampaign = () => {
                             value={formData.firstName}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            className={`transition-all duration-300 focus:scale-[1.02] ${
-                              errors.firstName && touched.firstName
-                                ? "border-red-500 focus-visible:ring-red-500"
-                                : ""
-                            }`}
+                            className={`transition-all duration-300 focus:scale-[1.02] ${errors.firstName && touched.firstName
+                              ? "border-red-500 focus-visible:ring-red-500"
+                              : ""
+                              }`}
                           />
                           {errors.firstName && touched.firstName && (
                             <p className="text-sm text-red-500 mt-1">
@@ -433,11 +467,10 @@ const JobCampaign = () => {
                             value={formData.lastName}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            className={`transition-all duration-300 focus:scale-[1.02] ${
-                              errors.lastName && touched.lastName
-                                ? "border-red-500 focus-visible:ring-red-500"
-                                : ""
-                            }`}
+                            className={`transition-all duration-300 focus:scale-[1.02] ${errors.lastName && touched.lastName
+                              ? "border-red-500 focus-visible:ring-red-500"
+                              : ""
+                              }`}
                           />
                           {errors.lastName && touched.lastName && (
                             <p className="text-sm text-red-500 mt-1">
@@ -458,11 +491,10 @@ const JobCampaign = () => {
                             value={formData.email}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            className={`transition-all duration-300 focus:scale-[1.02] ${
-                              errors.email && touched.email
-                                ? "border-red-500 focus-visible:ring-red-500"
-                                : ""
-                            }`}
+                            className={`transition-all duration-300 focus:scale-[1.02] ${errors.email && touched.email
+                              ? "border-red-500 focus-visible:ring-red-500"
+                              : ""
+                              }`}
                           />
                           {errors.email && touched.email && (
                             <p className="text-sm text-red-500 mt-1">
@@ -481,11 +513,10 @@ const JobCampaign = () => {
                             value={formData.phone}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            className={`transition-all duration-300 focus:scale-[1.02] ${
-                              errors.phone && touched.phone
-                                ? "border-red-500 focus-visible:ring-red-500"
-                                : ""
-                            }`}
+                            className={`transition-all duration-300 focus:scale-[1.02] ${errors.phone && touched.phone
+                              ? "border-red-500 focus-visible:ring-red-500"
+                              : ""
+                              }`}
                           />
                           {errors.phone && touched.phone && (
                             <p className="text-sm text-red-500 mt-1">
@@ -505,11 +536,10 @@ const JobCampaign = () => {
                           value={formData.motivation}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          className={`transition-all duration-300 focus:scale-[1.01] ${
-                            errors.motivation && touched.motivation
-                              ? "border-red-500 focus-visible:ring-red-500"
-                              : ""
-                          }`}
+                          className={`transition-all duration-300 focus:scale-[1.01] ${errors.motivation && touched.motivation
+                            ? "border-red-500 focus-visible:ring-red-500"
+                            : ""
+                            }`}
                         />
                         {errors.motivation && touched.motivation && (
                           <p className="text-sm text-red-500 mt-1">
@@ -526,12 +556,19 @@ const JobCampaign = () => {
                         />
                       </div>
                       <Button
-                        type="submit"
-                        size="lg"
-                        disabled={loading}
-                        className="w-full sm:w-auto hover:scale-105 transition-transform"
+                        size="sm"
+                        asChild
+                        className="h-12 px-12 text-md w-full sm:w-auto sm:min-w-[190px] transition-transform hover:scale-105"
                       >
-                        {loading ? "Submitting..." : "Submit Application"}
+                        <a
+                          href="#"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 justify-center sm:justify-start w-full"
+                        >
+                          {loading ? "Submitting..." : "Submit Application"}
+                          <ArrowRight className="w-4 h-4" />
+                        </a>
                       </Button>
                     </>
                   )}
@@ -645,7 +682,7 @@ const JobCampaign = () => {
         </div>
       </section>
 
-      <CompanyLifeShowcase/>
+      <CompanyLifeShowcase />
 
     </Layout>
   );
