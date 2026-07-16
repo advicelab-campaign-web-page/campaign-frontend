@@ -9,6 +9,11 @@ import {
 } from "lucide-react";
 
 import logo from "../../assets/advicelab-logo.webp";
+import Youtube from "../../assets/SocialMediaIcon/youtube.png";
+import Linkedin from "../../assets/SocialMediaIcon/linkedin.png";
+import Instagram from "../../assets/SocialMediaIcon/instagram.png";
+import TikTokIcon from "../../assets/SocialMediaIcon/tiktok.png";
+
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 import { useState } from "react";
 import { ContactPopup } from "../ui/ContactPopup";
@@ -228,7 +233,7 @@ export function Footer() {
             <p className="text-muted-foreground text-sm">
               © {new Date().getFullYear()} Advice Lab. All rights reserved.
             </p>
-            {/* <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4">
               <a
                 href="https://www.linkedin.com/company/advice-intel/"
                 aria-label="Visit Advice Lab on LinkedIn"
@@ -236,7 +241,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Linkedin className="w-5 h-5" />
+                <img src={Linkedin} alt="LinkedIn" className="w-5 h-5" />
               </a>
               <a
                 href="https://www.youtube.com/@Advice_Lab"
@@ -245,7 +250,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110"
               >
-                <Youtube className="w-6 h-6" />
+                <img src={Youtube} alt="YouTube" className="w-6 h-6" />
               </a>
 
               <a
@@ -255,7 +260,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Instagram className="w-5 h-5" />
+                <img src={Instagram} alt="Instagram" className="w-5 h-5" />
               </a>
               <a
                 href="https://www.tiktok.com/@advicelab"
@@ -264,9 +269,9 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <TikTokIcon className="w-5 h-5" />
+                <img src={TikTokIcon} alt="TikTok" className="w-5 h-5" />
               </a>
-            </div> */}
+            </div>
           </div>
           {/* Privacy Policy Notice */}
           <div className="mt-6 text-center text-xs text-muted-foreground/50 max-w-4xl mx-auto">
