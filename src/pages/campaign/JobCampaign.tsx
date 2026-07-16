@@ -1,6 +1,6 @@
 import Seo from "../../components/ui/Seo";
 // import { trackFormSubmission } from "../../lib/analytics";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Layout } from "../../components/layout/Layout";
 import { Button } from "../../components/ui/button";
 import { FileUpload } from "../../components/ui/FileUpload";
@@ -53,6 +53,7 @@ import { CompanyLifeShowcase } from "../../components/home/CompanyLifeShowcase";
 
 const JobCampaign = () => {
   const { toast } = useToast();
+  const applicationFormRef = useRef<HTMLDivElement | null>(null);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -84,6 +85,14 @@ const JobCampaign = () => {
     motivation?: boolean;
   }>({});
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const scrollToApplication = (e?: React.MouseEvent<HTMLButtonElement>) => {
+    e?.preventDefault();
+    applicationFormRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   const validateField = (name: string, value: string): string | undefined => {
     switch (name) {
@@ -378,29 +387,28 @@ const JobCampaign = () => {
                 <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold uppercase tracking-wider text-sm rounded-full mb-4">
                   Future Finance Leaders
                 </span>
-                <h2 className="font-display font-bold mt-2 mb-6 text-foreground text-2xl md:text-3xl">
+                <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">
                   Not everyone gets a seat at the table.
                 </h2>
-                <ul className="text-muted-foreground mb-8 space-y-3 list-disc list-inside pl-5 marker:text-primary marker:text-base">
-                  <li>We're selecting 11 ambitious interns with the curiosity to learn and the determination to grow.</li>
-                  <li>Gain confidence and make a difference from day one in Australia’s financial services industry.</li>
-                  <li>Build real-world experience that sets you apart.</li>
-                  <li>Think you've got what it takes? Your future starts here. Apply today.</li>
+                <ul className="text-muted-foreground mb-8 space-y-3 list-disc list-inside pl-0 marker:text-primary marker:text-base">
+                  <span>We're selecting 11 ambitious interns with the curiosity to learn and the determination to grow.Gain confidence and make a difference from day one in Australia’s financial services industry.Build real-world experience that sets you apart.</span>
                 </ul>
+
+                <ul className="text-muted-foreground mb-8 space-y-3 list-disc list-inside pl-0 marker:text-primary marker:text-base">
+                  <span>Think you've got what it takes? Your future starts here. Apply today.</span>
+
+                </ul>
+
                 <Button
+                  type="button"
                   size="sm"
-                  asChild
                   className="h-12 px-12 text-md w-full sm:w-auto sm:min-w-[190px] transition-transform hover:scale-105"
+                  onClick={scrollToApplication}
                 >
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 justify-center sm:justify-start w-full"
-                  >
+                  <span className="flex items-center gap-2 justify-center sm:justify-start w-full">
                     Enter the Draft
                     <ArrowRight className="w-4 h-4" />
-                  </a>
+                  </span>
                 </Button>
               </div>
             </ScrollAnimation>
@@ -414,10 +422,10 @@ const JobCampaign = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <ScrollAnimation animation="fade-left">
               <div className="rounded-[1rem] border border-border bg-secondary/60 p-10 shadow-xl">
-                <h3 className="text-2xl font-display font-bold text-foreground mb-6">
+                <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">
                   Selection requirements
-                </h3>
-                <ul className="text-foreground text-muted-foreground mb-8 list-disc list-inside pl-2 marker:text-primary marker:text-base space-y-3">
+                </h2>
+                <ul className="text-lg leading-relaxed text-muted-foreground mb-8 list-disc list-outside pl-6 marker:text-primary space-y-3">
                   <li>
                     Completed or pursuing a bachelors degree in finance, business management, banking, insurance or international business.
                   </li>
@@ -433,15 +441,17 @@ const JobCampaign = () => {
                 </ul>
 
                 <div className="mt-10 space-y-6 text-md text-muted-foreground leading-8">
-                  <p>This isn’t just another internship.</p>
-                  <p>It’s your chance to learn from industry professionals, work with Australian financial advisers, build real-world skills, and be part of a supportive team that invests in your growth from day one.</p>
+                  <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                    This isn’t just another internship.</p>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    It’s your chance to learn from industry professionals, work with Australian financial advisers, build real-world skills, and be part of a supportive team that invests in your growth from day one.</p>
                 </div>
               </div>
             </ScrollAnimation>
 
             <ScrollAnimation animation="fade-right">
-              <div>
-                <h2 className="text-2xl font-display font-bold mb-6">
+              <div id="application-form" ref={applicationFormRef}>
+                <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">
                   Submit your application
                 </h2>
                 <form className="space-y-6" onSubmit={handleSubmit} noValidate>
