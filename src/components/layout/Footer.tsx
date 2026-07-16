@@ -274,7 +274,7 @@ export function Footer() {
             </div>
           </div>
           {/* Privacy Policy Notice */}
-          <div className="mt-6 text-center text-xs text-muted-foreground/50 max-w-4xl mx-auto">
+          {/* <div className="mt-6 text-center text-xs text-muted-foreground/50 max-w-4xl mx-auto">
             To view our{" "}
             <a
               href="/pdf/AL_Privacy-policy.pdf"
@@ -299,7 +299,7 @@ export function Footer() {
             >
               hello@advicelab.com.au
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
       <ContactPopup
