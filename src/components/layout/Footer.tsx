@@ -21,33 +21,33 @@ import { ContactPopup } from "../ui/ContactPopup";
 
 const footerLinks = {
   company: [
-    { name: "About Us", href: "/about-us" },
-    { name: "Careers", href: "/careers" },
-    { name: "Contact Us", href: "/contact-us" },
-    { name: "Giving Back", href: "/giving-back" },
+    { name: "About Us", href: "https://advicelab.com.au/about-us" },
+    { name: "Careers", href: "https://advicelab.com.au/careers" },
+    { name: "Contact Us", href: "https://advicelab.com.au/contact-us" },
+    { name: "Giving Back", href: "https://advicelab.com.au/giving-back" },
   ],
   services: [
-    { name: "Paraplanning ", href: "/services/paraplanning" },
-    { name: "Client Support Officers ", href: "/services/clientsupport" },
-    { name: "SMSF & Accounting ", href: "/services/smsf-accounting" },
-    { name: "Mortgage Support  ", href: "/services/mortgage-support" },
+    { name: "Paraplanning ", href: "https://advicelab.com.au/services/paraplanning" },
+    { name: "Client Support Officers ", href: "https://advicelab.com.au/services/clientsupport" },
+    { name: "SMSF & Accounting ", href: "https://advicelab.com.au/services/smsf-accounting" },
+    { name: "Mortgage Support  ", href: "https://advicelab.com.au/services/mortgage-support" },
   ],
   resources: [
-    // { name: "Adviser’s Guide for Outsourcing ", href: "/resources" },
-    // { name: "Pricing Calculator ", href: "/resources#case-studies" },
-    // { name: "Accountant’s Offshoring Playbook ", href: "/resources#pricing" },
-    // { name: "Virtual CSO Task Library ", href: "/resources#guide" },
-    // { name: "SMSF Trustee Education Kit  ", href: "/resources#pricing" },
-    { name: "Blog  ", href: "/resources/blogs" },
+    // { name: "Adviser’s Guide for Outsourcing ", href: "https://advicelab.com.au/resources" },
+    // { name: "Pricing Calculator ", href: "https://advicelab.com.au/resources#case-studies" },
+    // { name: "Accountant’s Offshoring Playbook ", href: "https://advicelab.com.au/resources#pricing" },
+    // { name: "Virtual CSO Task Library ", href: "https://advicelab.com.au/resources#guide" },
+    // { name: "SMSF Trustee Education Kit  ", href: "https://advicelab.com.au/resources#pricing" },
+    { name: "Blog  ", href: "https://advicelab.com.au/resources/blogs" },
   ],
 
   legal: [
     {
       name: "Information Security Statement",
-      href: "/information-security-statement",
+      href: "https://advicelab.com.au/information-security-statement",
     },
-    { name: "Privacy Policy", href: "/pdf/AL_Privacy-policy.pdf" },
-    { name: "Cookies Policy", href: "/cookies-policy" },
+    { name: "Privacy Policy", href: "https://advicelab.com.au/pdf/AL_Privacy-policy.pdf" },
+    { name: "Cookies Policy", href: "https://advicelab.com.au/cookies-policy" },
   ],
 };
 
