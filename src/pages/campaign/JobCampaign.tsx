@@ -11,6 +11,7 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 import { ScrollAnimation } from "../../components/ui/ScrollAnimation";
 import greatPlaceToWorkCertificate1 from "../../assets/About/great-place-to-work-2024.webp";
 import greatPlaceToWorkCertificate2 from "../../assets/About/great-place-to-work-2025.webp";
+import headerImage from "../../assets/header-image.png";
 import { CompanyLifeShowcase } from "../../components/home/CompanyLifeShowcase";
 
 // const API_BASE_URL =
@@ -317,21 +318,40 @@ const JobCampaign = () => {
         title="Super 11 Application"
         description="Apply for the Super 11 training program at Advice Lab. Share your details, motivation and CV to join the next intake."
         keywords="Super 11 application, CV submission, training program, Advice Lab, financial services career"
-        pathname="/super-11-application"
+        pathname="/"
         schemaData={contactSchema}
       />
       {/* Hero */}
-      <section className="py-24 gradient-primary">
-        <div className="container mx-auto px-4 lg:px-8 text-center">
-          <h1 className="sr-only">Submit Your Application</h1>
-          <ScrollAnimation animation="fade-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground mb-6">
-              Submit Your Application
-            </h1>
-            <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto text-center">
-              Ready to become a Super 11? Share your details and CV with us.
-            </p>
-          </ScrollAnimation>
+      <section>
+        <div
+          className="relative min-h-[500px] flex items-center justify-center bg-cover bg-center overflow-hidden"
+          style={{ backgroundImage: `url(${headerImage})` }}
+        >
+          {/* Side Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/20 to-black/75" />
+
+          {/* Top & Bottom Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60" />
+
+          {/* Spotlight Behind Text */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-[800px] h-[300px] rounded-full bg-black/40 blur-3xl" />
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center">
+            <h1 className="sr-only">Submit Your Application</h1>
+
+            <ScrollAnimation animation="fade-up">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 drop-shadow-[0_8px_25px_rgba(0,0,0,0.9)]">
+                Submit Your Application
+              </h1>
+
+              <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-[0_4px_15px_rgba(0,0,0,0.9)]">
+                Ready to become a Super 11? Share your details and CV with us.
+              </p>
+            </ScrollAnimation>
+          </div>
         </div>
       </section>
 
