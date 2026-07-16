@@ -349,15 +349,15 @@ const JobCampaign = () => {
 
           {/* Content */}
           <div className="relative z-10 container mx-auto px-4 lg:px-8 text-center">
-            <h1 className="sr-only">Submit Your Application</h1>
+            <h1 className="sr-only">Advice Lab Super 11</h1>
 
             <ScrollAnimation animation="fade-up">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-6 drop-shadow-[0_8px_25px_rgba(0,0,0,0.9)]">
-                Submit Your Application
+                Advice Lab Super 11
               </h1>
 
               <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-[0_4px_15px_rgba(0,0,0,0.9)]">
-                Ready to become a Super 11? Share your details and CV with us.
+                11 Spots. One team. Own your future.
               </p>
             </ScrollAnimation>
           </div>
